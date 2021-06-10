@@ -1,0 +1,11 @@
+{
+    "name": "vimetop-guild-statements-manager",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "moment": "^2.29.1",
+        "node-vk-bot-api": "^3.5.0"
+    }
+}

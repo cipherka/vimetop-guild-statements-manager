@@ -1,0 +1,16 @@
+{
+    "vk": {
+        "token": "***",
+        "group_id": "***",
+        "execute_timeout": 50,
+        "polling_timeout": 25
+    },
+    "vimetop": {
+        "cookie": "nickname=***; PHPSESSID=***; auth_hash=***",
+        "guild_id": "***"
+    },
+    "bot": {
+        "prefix": "/",
+        "allowed": [111111111, 222222222, 333333333]
+    }
+}
