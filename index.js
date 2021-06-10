@@ -7,7 +7,7 @@ bot.on(async (ctx) => {
     const messageContent = ctx.message.text || ctx.message.body;
     const messageAuthorID = ctx.message.user_id || ctx.message.from_id;
     
-    if(!messageContent.startsWith(config.bot.prefix)) return;
+    try { if(!messageContent.startsWith(config.bot.prefix)) return; } catch(e) {}
     const args = messageContent.slice(config.bot.prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
