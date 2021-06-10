@@ -11,12 +11,15 @@ bot.on(async (ctx) => {
     const args = messageContent.slice(config.bot.prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
+    if(command == "бот")
+        return ctx.reply(`Разработчик: Vlad_Cyphersky\nИсходный код: https://github.com/vlfz/vimetop-guild-statements-manager`);
+
     if(command == "загрузить" && config.bot.allowed.includes(messageAuthorID)) {
         let data = await request(config.vimetop.cookie, {
             type: 'load_statement',
             guild: config.vimetop.guild_id
         }).catch(console.error);
-        if(data.data.status == false) return ctx.reply(`Сервер VimeTop отправил ошибку: ${data.data.msg}\nЕсли Вы не можете сами устранить данную ошибку, пожалуйста, обратитесь к разработчику бота: https://vk.com/neomount`);
+        if(data.data.status == false) return ctx.reply(`Сервер VimeTop отправил ошибку: ${data.data.msg}\nЕсли Вы не можете сами устранить данную ошибку, пожалуйста, обратитесь к разработчику бота: https://vk.com/id${config.bot.allowed[0]}`);
 
         let statementID = args.shift();
         if(statementID) {
@@ -59,7 +62,7 @@ bot.on(async (ctx) => {
             action: (action == "+") ? 1 : 0,
             id: statementID
         }).catch(console.error);
-        if(data.data.status == false) return ctx.reply(`Сервер VimeTop отправил ошибку: ${data.data.msg}\nЕсли Вы не можете сами устранить данную ошибку, пожалуйста, обратитесь к разработчику бота: https://vk.com/neomount`);
+        if(data.data.status == false) return ctx.reply(`Сервер VimeTop отправил ошибку: ${data.data.msg}\nЕсли Вы не можете сами устранить данную ошибку, пожалуйста, обратитесь к разработчику бота: https://vk.com/id${config.bot.allowed[0]}`);
 
         return ctx.reply(data.data.msg);
     }
